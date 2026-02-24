@@ -1,9 +1,13 @@
 .searchContainer{
-    background-color: aqua;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
+    background-color: rgb(101, 116, 138);
+}
+.searchContainer h2{
+    color: #fff;
+    font-weight: 600;
 }
 .searchSection{
     display: flex;
@@ -15,11 +19,12 @@
     gap: 1rem;
 }
 .searchSection img{
-    height: 30px;
+    height: 25px;
 }
 .searchSection input{
     height: 1.5rem;
     outline: none;
     border: none;
     font-size: 1.2rem;
+    cursor: pointer;
 }

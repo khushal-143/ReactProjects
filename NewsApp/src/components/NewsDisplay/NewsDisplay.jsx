@@ -3,7 +3,7 @@ import './NewsDisplay.css'
 import newsImg from '../../assets/newsImage.png'
 const NewsDisplay = ({about}) => {
     const [Articles, setArticles] = useState([]);
-    const API_KEY = "e0d525f97a8142b79c43f6b96807d03a";
+    const API_KEY = "709441050816457ab5e834945c9a843b";
     useEffect(() => {
         const getNews = async () => {
             try {
@@ -29,19 +29,22 @@ const NewsDisplay = ({about}) => {
             {
                 Articles.map((article,index) => {
                     return (
-                        <div className="newsDisplay" key={index}>
-                            <div className="imgContainer">
-                                <img src={article.urlToImage || newsImg} alt="news Image" />
-                            </div>
-                            <div className="newsContent">
-                                <h2 className="newsheading">{article.title || "news heading"}</h2>
-                                <p className="newsDescription">{article.description || "news content"}</p>
-                                <div className="infoContainer">
-                                    <h3 className='source'>{article.source.name || "source "}</h3>
-                                    <h3 className='author'>{article.author || "author"}</h3>
+                        <>
+                            <div className="newsDisplay" key={index}>
+                                <div className="imgContainer">
+                                    <img src={article.urlToImage || newsImg} alt="news Image" />
+                                </div>
+                                <div className="newsContent">
+                                    <h2 className="newsheading">{article.title || "news heading"}</h2>
+                                    <p className="newsDescription">{article.description || "news content"}</p>
+                                    <div className="infoContainer">
+                                        <h3 className='source'>{article.source.name || "source "}</h3>
+                                        <h3 className='author'>{article.author || "author"}</h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <hr />
+                        </>
                     )
                 })
             }            

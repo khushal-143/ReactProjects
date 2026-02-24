@@ -18,7 +18,7 @@ function App() {
           />
         </div>
       </div>
-      <NewsDisplay about={newsData}/>
+      <NewsDisplay about={newsData ||"haryana"}/>
     </>
   )
 }
