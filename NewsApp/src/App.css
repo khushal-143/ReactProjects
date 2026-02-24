@@ -1,0 +1,25 @@
+.searchContainer{
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+.searchSection{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    height: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    gap: 1rem;
+}
+.searchSection img{
+    height: 30px;
+}
+.searchSection input{
+    height: 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+}
