@@ -1,0 +1,181 @@
+.eventSection{
+    height: 781px;
+    background-color: #FFC71A17;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+.eventSection::before{
+    content: '';
+    inset: 0;
+    left: -505px;
+    top: -290px;
+    opacity: .4;
+    position: absolute;
+    background: url("../../assets/group.png");
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.discoverContainer{
+    width: 30%;
+    padding-left: 5rem;
+    animation: scrollup 1.5s 1 ease;
+    
+}
+@keyframes scrollup {
+    0%{
+        transform: translateY(40%);
+        opacity: .8;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+.discoverContainer p{
+    font-family: 'EB Garamond';
+    color: #202040;
+    margin-top: 9rem;
+    font-size: 20px;
+}
+.discoverContainer span{
+    position: relative;
+}
+.discoverContainer span::before{
+    position: absolute;
+    content: '';
+    inset: 0;
+    border-bottom: 2px solid #F49327;
+    transform: translateY(5px);
+}
+.discoverContainer h2{
+    font-family: 'Montserrat';
+    color: #202040;
+    margin-top: 1.8rem;
+    font-size: 33px;
+}
+.eventsImgsContainer{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.eventImages{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    height: 540px;
+    margin-right: 10px;
+    cursor: pointer;
+    animation: scrollRight 1.5s 1 ease;
+}
+
+@keyframes scrollRight {
+    0%{
+        transform: translate(-40%);
+        opacity: .8;
+    }
+    100%{
+        transform: translate(0%);
+        opacity: 1;
+    }
+}
+.imgBox{
+    overflow: hidden;
+}
+.firstImage{
+    width: 50%;
+    position: relative;
+}
+.firstImage img ,.secondImage img,.thirdImage img{
+    height: 540px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+.secondImage, .thirdImage{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width .5s ease-in;
+    position: relative;
+}
+
+.secondImage:hover{
+    width: 50%;
+}
+
+.thirdImage:hover{
+    width: 50%;
+}
+
+.secondImage:hover + .thirdImage{
+    width: 20%;
+}
+
+.eventDate{
+    position: absolute;
+    color: #fff;
+    font-family: 'Montserrat';
+    top:70%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 1rem;
+    font-size: 31px;
+}
+
+.eventBtn{
+    padding: 2rem;
+    display: flex;
+    justify-content: end;
+}
+.eventBtn button{
+    border: 1px solid #11365d;
+    background-color: #fff;
+    padding: .4rem 1rem;
+    border-radius: 30px;
+    color: #11365d;
+    font-size: .8rem;
+    cursor: pointer;
+    transition: .2s ease-in;
+    margin-right: 1.5rem;
+}
+.eventBtn button:hover{
+    color: #fff;
+    background-color: #11365d;
+}
+
+@media(max-width:768px){
+    .eventSection{
+        flex-direction: column;
+    }
+    .discoverContainer,.eventsImgsContainer{
+        width: 100%;
+    }
+    .discoverContainer{
+        padding-left: 0;
+        text-align: center;
+    }
+    .firstImage,.secondImage,.thirdImage{
+        width: 30%;
+        height: 400px;
+    }
+    .firstImage img,.secondImage img,.thirdImage img{
+        height: 400px;
+    }
+    .discoverContainer p{
+        margin-top: 5rem;
+    }
+    .eventImages{
+        gap:25px;
+        height: 400px;
+        justify-content: space-evenly;
+        margin-left: 10px;
+    }
+    
+}

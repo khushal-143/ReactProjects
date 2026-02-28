@@ -1,33 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useEffect, useState } from 'react';
+import search from './assets/search.png'
+import WordCard from './components/WordCard/WordCard';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [word, setWord] = useState("");
+  const [wordInfo, setwordInfo] = useState(null);
 
+  useEffect(() => {
+    const getMeaning = async () => {
+      try {
+        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+        const data = await res.json();
+        console.log(data[0]);
+        setwordInfo({
+          name: data[0].word,
+          audio: data[0].phonetics[1].audio,
+          text: data[0].phonetics[0].text,
+          definition: data[0].meanings[0].definitions[0].definition,
+          example:data[0].meanings[0].definitions[0].example
+        })
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+    getMeaning();
+  },[word])
+  
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="searchContainer">
+        <h2>SEARCH MEANING</h2>
+        <div className="searchSection">
+          <img src={search} alt="" />
+          <input
+            type="text"
+            placeholder="Search Word"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <WordCard key={word.name} word={ wordInfo || ''} />
     </>
   )
 }

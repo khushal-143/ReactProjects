@@ -1,0 +1,133 @@
+ /* Questions and Answers Container  */
+*{
+    margin: 0;
+    padding: 0;
+}
+.QNASection{
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+.QNASection h3{
+    color: #222341;
+    padding-left: 2rem;
+}
+.QNASection span{
+    position: relative;
+}
+.QNASection span::before{
+    position: absolute;
+    content: '';
+    inset: 0;
+    border-bottom: 2px solid #e39a44;
+    transform: translateY(5px);
+}
+
+/* Qustions */
+
+.questionSection{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.Question ,.moreQue{
+    margin: 0 auto;
+}
+.Question {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: .7rem 1rem;
+    width: 70%;
+    border: 1px solid rgb(199, 195, 195);
+    border-radius: 5px;
+
+    transition: 
+        background 0.4s ease-in,
+        color 0.3s ease-in,
+        transform 0.2s ease-in;
+}
+
+.Question.active {
+  color: #fff;
+  background: linear-gradient(to bottom, #11365d, #abaeb1);
+  transform: translateY(-2px);
+}
+.QuestionContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.QuestionContainer p{
+    font-family: 'EB Garamond';
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+.dropdownArrow{
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+/* Answers */
+
+.answers {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 
+    max-height 0.3s ease-in-out,
+    opacity 0.3s ease-in-out,
+    margin-top 0.3s ease-in-out;
+}
+
+.showAnswer {
+  max-height: 200px; 
+  opacity: 1;
+  margin-top: 1.1rem;
+  margin-bottom: .5rem;
+}
+
+/* More Questions Display button*/
+
+.moreQue button{
+    border: 1px solid #11365d;
+    background-color: #fff;
+    padding: .4rem 1rem;
+    border-radius: 30px;
+    color: #11365d;
+    font-size: .6rem;
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+.moreQue button:hover{
+    color: #fff;
+    background-color: #11365d;
+}
+
+/* Bot Image */
+
+.botImg{
+    width: 200px;
+    height: 200px;
+    bottom: 0;
+    right: -2rem;
+    opacity: .5;
+    z-index: -1;
+    object-fit: contain;
+    position: absolute;
+}
+
+/* Resposive */
+
+@media(max-width:375px){
+    .QNASection h3{
+        font-size: 1.1rem;
+        padding-left: 1rem;
+    }
+}
